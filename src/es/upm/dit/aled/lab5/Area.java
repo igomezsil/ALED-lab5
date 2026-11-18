@@ -154,8 +154,10 @@ public class Area {
 	 * 
 	 * @return The number of Patients waiting to be treated.
 	 */
-	// TODO method getWaiting
-
+	public synchronized int getWaiting() {
+		return waiting;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(name);
