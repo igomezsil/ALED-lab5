@@ -101,7 +101,24 @@ public class Area {
 	 * 
 	 * @param p The patient that wants to enter.
 	 */
-	// TODO: method enter
+	public synchronized void enter (Patient p) {
+		System.out.println("Patient " + p.getNumber() + " trying to enter " + name);
+		try {
+			this.waiting++;
+			while (numPatients >= this.capacity) {
+				System.out.println("Patient " + p.getNumber() + " waiting for " + name);
+				wait();
+			}
+			numPatients++;
+			waiting--;
+			System.out.println("Patient " + p.getNumber() + " has entered " + name);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			Thread.currentThread().interrupt(); 
+		}
+	}
+
+	}
 	
 	/**
 	 * Thread safe method that allows a Patient to exit the area. After the Patient
