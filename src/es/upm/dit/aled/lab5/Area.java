@@ -118,7 +118,6 @@ public class Area {
 		}
 	}
 
-	}
 	
 	/**
 	 * Thread safe method that allows a Patient to exit the area. After the Patient
@@ -126,7 +125,11 @@ public class Area {
 	 * 
 	 * @param p The patient that wants to enter.
 	 */
-	// TODO method exit
+	public synchronized void exit(Patient p) {
+		numPatients--;
+		System.out.println("Patient " + p.getNumber() + " has exited " + name);
+		notifyAll();
+	}
 	
 	/**
 	 * Returns the capacity of the Area. This method must be thread safe.
