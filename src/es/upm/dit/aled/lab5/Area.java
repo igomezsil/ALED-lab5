@@ -136,7 +136,9 @@ public class Area {
 	 * 
 	 * @return The capacity.
 	 */
-	// TODO: method getCapacity
+	public int getCapacity() {
+		return this.capacity;
+	}
 	
 	/**
 	 * Returns the current number of Patients being treated at the Area. This method must be thread safe.
