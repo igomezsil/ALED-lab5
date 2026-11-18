@@ -40,7 +40,12 @@ public class Area {
 	 * @param position The location of the Area in the GUI.
 	 */
 	public Area(String name, int time, int capacity, Position2D position) {
-		// TODO
+		this.name = name;
+		this.time = time;
+		this.capacity = capacity;
+		this.numPatients = 0;
+		this.waiting = 0;
+		this.position = position;
 		this.color = Color.GRAY; // Default color
 	}
 
